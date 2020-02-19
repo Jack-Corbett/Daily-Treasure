@@ -44,8 +44,9 @@
         {
           "name": "LockIntent",
           "samples": [
-            "lock",
-            "close"
+            "lock {Treasure}",
+            "close {Treasure}",
+            "save {Treasure}"
           ],
           "slots": [
             {

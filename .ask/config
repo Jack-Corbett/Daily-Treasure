@@ -1,8 +1,32 @@
 {
   "deploy_settings": {
     "default": {
-      "skill_id": "",
-      "merge": {}
+      "skill_id": "amzn1.ask.skill.1812681e-591a-468a-b49a-3f7a1b6293d1",
+      "merge": {},
+      "resources": {
+        "manifest": {
+          "eTag": "ce2a8a3818a1b12d55693ae2c9dc46a5"
+        },
+        "interactionModel": {
+          "en-GB": {
+            "eTag": "a1acf9b7e7a0a5ee1acc93edd88d1f9f"
+          }
+        },
+        "lambda": [
+          {
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:499295336600:function:ask-custom-Daily-Treasure-default",
+            "awsRegion": "us-east-1",
+            "codeUri": "lambda/custom",
+            "functionName": "ask-custom-Daily-Treasure-default",
+            "handler": "index.handler",
+            "revisionId": "10b84beb-89d6-4db6-90b8-bf3f9db30b9b",
+            "runtime": "nodejs10.x"
+          }
+        ]
+      }
     }
   }
- }
+}

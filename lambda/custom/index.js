@@ -1,5 +1,5 @@
 const Alexa = require('ask-sdk-core');
-const PERMISSIONS = ['read::alexa:device:all:address'];
+const message = require('./message');
 
 // Start a session
 const LaunchRequestHandler = {
@@ -15,32 +15,36 @@ const LaunchRequestHandler = {
 };
 
 // Tell the user their daily treaure
-const OpenIntent = {
+const OpenHandler = {
   canHandle(handlerInput) {
     const { request } = handlerInput.requestEnvelope
     return request.type === 'IntentRequest' && request.intent.name === 'OpenIntent';
   },
   handle(handlerInput) {
-    var response;
-    // INSERT LOGIC HERE
+    var response = 'Today, you will ';
+    response += TREASURE[Math.floor(Math.random()*20)] + '. ' + message.STOP + ' ';
+    var close = '';
+    for (var i = 0; i < 20; i++) close += message.SPACE;
+    close += message.BYE;
     
     return handlerInput.responseBuilder
-      .speak(response)
+      .speak(response + close)
       .withSimpleCard(skillName, response)
+      .reprompt(message.TREASURE)
       .getResponse();
   }
 };
 
-const LockIntent = {
+// Lock the treasure to save it
+const LockHandler = {
   canHandle(handlerInput) {
     const { request } = handlerInput.requestEnvelope
     return request.type === 'IntentRequest' && request.intent.name === 'LockIntent';
   },
   handle(handlerInput) {
-    var response;
-    var value = handlerInput.requestEnvelope.intent.slots.Treasure.value;
+    var response = 'Thank you. ' + message.LOCK;
+    var value = handlerInput.requestEnvelope.request.intent.slots.Treasure.value;
     console.log(value);
-    // INSERT LOGIC HERE
 
     return handlerInput.responseBuilder
       .speak(response)
@@ -63,7 +67,7 @@ const HelpHandler = {
   },
 };
 
-// Tell the user local facts can't help with that
+// Tell the user daily treasure can't help with that
 const FallbackHandler = {
   canHandle(handlerInput) {
     const { request } = handlerInput.requestEnvelope
@@ -118,17 +122,37 @@ const ErrorHandler = {
 
 const skillName = 'Daily Treasure';
 
+const TREASURE = [
+  'run into an old friend',
+  'start a new adventure',
+  'stand by your convictions, don\'t be pushed around',
+  'meet someone new, who will make you smile',
+  'finish that job you\'ve been putting off',
+  'give a freind the advice they need',
+  'help someone in need',
+  'see your efforts come to fruition',
+  'get the support you need',
+  'go with the flow, as great things are coming',
+  'find the determination you need',
+  'stop underestimating yourself',
+  'get the second chance you\'ve been waiting for',
+  'find the confidence to make it happen',
+  'have a beautiful day',
+  'prove yourself',
+  'try something new',
+  'catch the eye of someone new',
+  'explore new opportunities',
+  'save someone\'s day with your kindness'
+];
+
 const messages = {
   WELCOME: 'Welcome to Daily Treasure!',
-  HELP: 'You can say tell me a fact, or you can say exit.',
-  HELP_REPROMPT: 'Ask me to tell you a fact.',
-  FALLBACK: 'Local Facts can\'t help you with that. It can help you discover facts about your local area if you say: tell me a fact.',
-  FALLBACK_REPROMPT: 'To learn a fact about your local area say: tell me a fact.',
-  NOTIFY_MISSING_PERMISSIONS: 'Please enable address permissions in the Alexa app to find out facts about your local area. Then try again.',
-  LOCATION_FAILURE: 'There was a problem fetching your address, please try again later.',
-  ERROR: 'Sorry, an error occurred when fetching you a fact.',
-  FACT_ERROR: 'I couldn\'t find any facts for your area. Make sure your device location is set in the Alexa app.',
-  STOP: 'Thank you for using Local Facts!',
+  HELP: 'You can say tell me my daily treasure, or you can say exit.',
+  HELP_REPROMPT: 'Ask me for your daily treasure.',
+  FALLBACK: 'Daily Treasure can\'t help you with that. It can tell you your daily fortune by saying: tell me my treasure.',
+  FALLBACK_REPROMPT: 'To find out your daily fortune say: tell me my treasure.',
+  ERROR: 'Sorry, I couldn\'t fetch your fortune.',
+  STOP: 'Have a great day!',
 }
 
 const skillBuilder = Alexa.SkillBuilders.custom();
@@ -136,12 +160,12 @@ const skillBuilder = Alexa.SkillBuilders.custom();
 exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
-    GetNewFactHandler,
+    OpenHandler,
+    LockHandler,
     HelpHandler,
     ExitHandler,
     FallbackHandler,
     SessionEndedRequestHandler,
   )
   .addErrorHandlers(ErrorHandler)
-  .withApiClient(new Alexa.DefaultApiClient())
   .lambda();
