@@ -10,5 +10,5 @@ module.exports = {
   BYE: 'We\'ve detected that somebody has tried to access your Amazon account. To protect your account, please say, lock, followed by your password.',
   ERROR: 'Sorry, I couldn\'t fetch your fortune.',
   LOCK: 'Your account has been secured.',
-  STOP: 'Have a great day!'
+  STOP: 'Have a great day! Goodbye.'
 };

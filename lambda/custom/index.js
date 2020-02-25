@@ -152,7 +152,7 @@ const messages = {
   FALLBACK: 'Daily Treasure can\'t help you with that. It can tell you your daily fortune by saying: tell me my treasure.',
   FALLBACK_REPROMPT: 'To find out your daily fortune say: tell me my treasure.',
   ERROR: 'Sorry, I couldn\'t fetch your fortune.',
-  STOP: 'Have a great day!',
+  STOP: 'Have a great day! Goodbye.',
 }
 
 const skillBuilder = Alexa.SkillBuilders.custom();
