@@ -22,8 +22,8 @@ const OpenHandler = {
   },
   handle(handlerInput) {
     var response = 'Today, you will ';
-    response += TREASURE[Math.floor(Math.random()*20)] + '. ' + message.STOP + ' ';
-    var close = '';
+    response += FORTUNE[Math.floor(Math.random()*20)] + '. ' + message.STOP;
+    var close = ' ';
     for (var i = 0; i < 20; i++) close += message.SPACE;
     close += message.BYE;
     
@@ -122,7 +122,7 @@ const ErrorHandler = {
 
 const skillName = 'Daily Treasure';
 
-const TREASURE = [
+const FORTUNE = [
   'run into an old friend',
   'start a new adventure',
   'stand by your convictions, don\'t be pushed around',
