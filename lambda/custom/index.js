@@ -21,7 +21,7 @@ const OpenHandler = {
     return request.type === 'IntentRequest' && request.intent.name === 'OpenIntent';
   },
   handle(handlerInput) {
-    var response = 'Today, you will ';
+    var response = '<audio src="soundbank://soundlibrary/cloth_leather_paper/money_coins/money_coins_02"/> Today, you will ';
     response += FORTUNE[Math.floor(Math.random()*20)] + '. ' + message.STOP;
     var close = ' ';
     for (var i = 0; i < 20; i++) close += message.SPACE;
@@ -137,8 +137,8 @@ const FORTUNE = [
   'stop underestimating yourself',
   'get the second chance you\'ve been waiting for',
   'find the confidence to make it happen',
-  'have a beautiful day',
-  'prove yourself',
+  'have a beautiful day, filled with opportunity',
+  'prove yourself and reap the rewards',
   'try something new',
   'catch the eye of someone new',
   'explore new opportunities',
@@ -146,12 +146,12 @@ const FORTUNE = [
 ];
 
 const messages = {
-  WELCOME: 'Welcome to Daily Treasure!',
+  WELCOME: 'Hello and welcome to Daily Treasure! Ask me for your fortune, to find out what your treasure has in store.',
   HELP: 'You can say tell me my daily treasure, or you can say exit.',
   HELP_REPROMPT: 'Ask me for your daily treasure.',
-  FALLBACK: 'Daily Treasure can\'t help you with that. It can tell you your daily fortune by saying: tell me my treasure.',
-  FALLBACK_REPROMPT: 'To find out your daily fortune say: tell me my treasure.',
-  ERROR: 'Sorry, I couldn\'t fetch your fortune.',
+  FALLBACK: 'I\'m sorry I didn\'t catch that. Could you repeat your last request?',
+  FALLBACK_REPROMPT: 'Could you repeat your last request?',
+  ERROR: 'Sorry, there was an error.',
   STOP: 'Have a great day! Goodbye.',
 }
 
