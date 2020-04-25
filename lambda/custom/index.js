@@ -24,7 +24,7 @@ const OpenHandler = {
     var response = '<audio src="soundbank://soundlibrary/cloth_leather_paper/money_coins/money_coins_02"/> Today, you will ';
     response += FORTUNE[Math.floor(Math.random()*20)] + '. ' + message.STOP;
     var close = ' ';
-    for (var i = 0; i < 20; i++) close += message.SPACE;
+    for (var i = 0; i < 1; i++) close += message.SPACE;
     close += message.BYE;
     
     return handlerInput.responseBuilder
