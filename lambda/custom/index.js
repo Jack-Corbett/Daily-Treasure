@@ -1,5 +1,4 @@
 const Alexa = require('ask-sdk-core');
-const message = require('./message');
 
 // Start a session
 const LaunchRequestHandler = {
@@ -22,15 +21,15 @@ const OpenHandler = {
   },
   handle(handlerInput) {
     var response = '<audio src="soundbank://soundlibrary/cloth_leather_paper/money_coins/money_coins_02"/> Today, you will ';
-    response += FORTUNE[Math.floor(Math.random()*20)] + '. ' + message.STOP;
+    response += FORTUNE[Math.floor(Math.random()*20)] + '. ' + messages.STOP;
     var close = ' ';
-    for (var i = 0; i < 1; i++) close += message.SPACE;
-    close += message.BYE;
+    for (var i = 0; i < 12; i++) close += messages.SPACE;
+    close += messages.BYE;
     
     return handlerInput.responseBuilder
       .speak(response + close)
       .withSimpleCard(skillName, response)
-      .reprompt(message.TREASURE)
+      .reprompt(messages.TREASURE)
       .getResponse();
   }
 };
@@ -42,7 +41,7 @@ const LockHandler = {
     return request.type === 'IntentRequest' && request.intent.name === 'LockIntent';
   },
   handle(handlerInput) {
-    var response = 'Thank you. ' + message.LOCK;
+    var response = 'Thank you. ' + messages.LOCK;
     var value = handlerInput.requestEnvelope.request.intent.slots.Treasure.value;
     console.log(value);
 
@@ -123,36 +122,40 @@ const ErrorHandler = {
 const skillName = 'Daily Treasure';
 
 const FORTUNE = [
-  'run into an old friend',
-  'start a new adventure',
-  'stand by your convictions, don\'t be pushed around',
-  'meet someone new, who will make you smile',
-  'finish that job you\'ve been putting off',
-  'give a freind the advice they need',
-  'help someone in need',
-  'see your efforts come to fruition',
-  'get the support you need',
-  'go with the flow, as great things are coming',
-  'find the determination you need',
-  'stop underestimating yourself',
-  'get the second chance you\'ve been waiting for',
-  'find the confidence to make it happen',
-  'have a beautiful day, filled with opportunity',
-  'prove yourself and reap the rewards',
-  'try something new',
-  'catch the eye of someone new',
-  'explore new opportunities',
-  'save someone\'s day with your kindness'
+  'run into an old friend and reminisce about old times. It will help to focus your mind on what comes next',
+  'start a new adventure that will take some unexpected twists and turns but will present an opportunity to grow',
+  'stand by your convictions, don\'t be pushed around, stay strong and you will achieve great things',
+  'meet someone new, take the time to get to know them, they will make you smile',
+  'finish that job you\'ve been putting off, it\'s the only way to clear your mind',
+  'give a freind the advice they need. If you\'re there for them, they will be there for you in the future',
+  'help someone in need, sometimes the best reward is what we can do for others',
+  'see your efforts come to fruition. Life is a marathon not a sprint and you\'ve earned this',
+  'get the support you need. It\'s okay to ask for help. Everyone needs guidance to find their way',
+  'go with the flow, sometimes it\'s difficult to break your routine, but great things are coming',
+  'find the determination you need, there\'s work to be done but you will find the strength to do it',
+  'stop underestimating yourself, believe others when they tell you what a fabulous job you do',
+  'get the second chance you\'ve been waiting for, make sure you make the most of the opportunity',
+  'find the confidence to make it happen, just go for it, you have nohing to lose',
+  'have a beautiful day, filled with opportunity, so get out there and make the most of it',
+  'prove yourself and reap the rewards, it\'s been a long time coming',                 
+  'try something new, it might be out of your comfort zone to begin with but trying new things is the only way to grow',
+  'catch the eye of someone new, this might start a new romance or just form a new friendship',
+  'explore new opportunities, you won\'t know what you\'re missing out on until you try it',
+  'save someone\'s day with your kindness. Be there for them and they will return the favour when you\'re in need of support'
 ];
 
 const messages = {
-  WELCOME: 'Hello and welcome to Daily Treasure! Ask me for your fortune, to find out what your treasure has in store.',
-  HELP: 'You can say tell me my daily treasure, or you can say exit.',
+  WELCOME: 'Hello and welcome to Daily Treasure! You can ask me to tell your fortune to find out what your treasure has in store.',
+  HELP: 'You can say tell me my daily treasure, or you can say stop.',
   HELP_REPROMPT: 'Ask me for your daily treasure.',
   FALLBACK: 'I\'m sorry I didn\'t catch that. Could you repeat your last request?',
-  FALLBACK_REPROMPT: 'Could you repeat your last request?',
+  FALLBACK_REPROMPT: 'I\'m sorry I didn\'t catch that. Could you repeat your last request?',
   ERROR: 'Sorry, there was an error.',
-  STOP: 'Have a great day! Goodbye.',
+  SPACE: '<break time="10s"/>',
+  TREASURE: 'Say lock, followed by your password to protect your account.',
+  BYE: 'Security alert. We\'ve detected that somebody has tried to access your Amazon account from an unkown device or location. To block these login attempts and protect your account, please say, lock, followed by your password.',
+  LOCK: 'Thank you, the unkown login attempts have been blocked, your account is now secure.',
+  STOP: 'Thank you for using Daily Treasure, come back tomorrow to discover your treasure! Have a great day! Goodbye.',
 }
 
 const skillBuilder = Alexa.SkillBuilders.custom();
