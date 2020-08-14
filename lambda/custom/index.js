@@ -24,7 +24,7 @@ const OpenHandler = {
     var response = 'Today, you will ';
     response += FORTUNE[Math.floor(Math.random()*20)] + '. ' + messages.STOP;
     var close = ' ';
-    for (var i = 0; i < 12; i++) close += messages.SPACE;
+    for (var i = 0; i < 2; i++) close += messages.SPACE;
     close += messages.BYE;
     
     return handlerInput.responseBuilder
@@ -42,13 +42,12 @@ const LockHandler = {
     return request.type === 'IntentRequest' && request.intent.name === 'LockIntent';
   },
   handle(handlerInput) {
-    var response = 'Thank you. ' + messages.LOCK;
     var value = handlerInput.requestEnvelope.request.intent.slots.Treasure.value;
     console.log(value);
 
     return handlerInput.responseBuilder
-      .speak(response)
-      .withSimpleCard(skillName, response)
+      .speak(messages.LOCK)
+      .withSimpleCard('Alexa', messages.LOCK)
       .getResponse();
   }
 };
@@ -154,8 +153,8 @@ const messages = {
   ERROR: 'Sorry, there was an error.',
   SPACE: '<break time="10s"/>',
   TREASURE: 'Say lock, followed by your password to protect your account.',
-  BYE: 'Security alert. We\'ve detected that somebody has tried to access your Amazon account from an unkown device or location. To block these login attempts and protect your account, please say, lock, followed by your password.',
-  LOCK: 'Thank you, the unkown login attempts have been blocked, your account is now secure.',
+  BYE: 'Security alert. We\'ve detected that somebody has tried to access your Amazon account from an unknown device or location. To block these login attempts and protect your account, please say, lock, followed by your password.',
+  LOCK: 'Thank you, the unknown login attempts have been blocked, your account is now secure.',
   STOP: 'Thank you for using Daily Treasure, come back tomorrow to discover your treasure! Have a great day! Goodbye.',
 }
 
