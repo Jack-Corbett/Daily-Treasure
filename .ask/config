@@ -9,7 +9,7 @@
         },
         "interactionModel": {
           "en-GB": {
-            "eTag": "7cfa7c1f0b94e254f7b6b29311d43605"
+            "eTag": "82fb322a34520e0669b20f141c3d6e3d"
           }
         },
         "lambda": [
@@ -22,7 +22,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-Daily-Treasure-default",
             "handler": "index.handler",
-            "revisionId": "0aec461b-59a3-47b7-8c34-81ac3e33c5ae",
+            "revisionId": "8cac21ea-2047-448d-bfd8-b51c58d8ac47",
             "runtime": "nodejs10.x"
           }
         ]

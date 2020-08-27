@@ -4,6 +4,9 @@
       "locales": {
         "en-GB": {
           "summary": "Find out your daily fortune.",
+          "description": "Ask for your daily fortune.",
+          "smallIconUri": "https://raw.githubusercontent.com/Jack-Corbett/Daily-Treasure/master/Small%20Icon.png",
+          "largeIconUri": "https://raw.githubusercontent.com/Jack-Corbett/Daily-Treasure/master/Large%20Icon.png",
           "examplePhrases": [
             "Alexa open daily treasure",
             "Alexa ask daily treasure to open my treasure",
@@ -14,11 +17,29 @@
             "treasure",
             "fortune"
           ],
-          "name": "Daily Treasure",
-          "description": "Ask for your daily fortune."
+          "name": "Daily Treasure"
         }
       },
-      "category": "ASTROLOGY"
+      "distributionCountries": [
+        "GB"
+      ],
+      "isAvailableWorldwide": false,
+      "distributionMode": "PUBLIC",
+      "testingInstructions": "TODO",
+      "category": "KNOWLEDGE_AND_TRIVIA"
+    },
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "en-GB": {
+          "privacyPolicyUrl": "https://github.com/Jack-Corbett/Daily-Treasure/blob/master/Privacy%20Policy.md",
+          "termsOfUseUrl": ""
+        }
+      }
     },
     "apis": {
       "custom": {
