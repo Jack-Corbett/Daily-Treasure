@@ -1,0 +1,32 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:499295336600:function:ask-custom-Daily-Treasure-default"
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "publishingInformation": {
+      "category": "ASTROLOGY",
+      "locales": {
+        "en-GB": {
+          "description": "Ask for your daily fortune.",
+          "examplePhrases": [
+            "Alexa open daily treasure",
+            "Alexa ask daily treasure to open my treasure",
+            "Alexa tell daily treasure to tell me my fortune"
+          ],
+          "keywords": [
+            "daily",
+            "treasure",
+            "fortune"
+          ],
+          "name": "Daily Treasure",
+          "summary": "Find out your daily fortune."
+        }
+      }
+    }
+  }
+}

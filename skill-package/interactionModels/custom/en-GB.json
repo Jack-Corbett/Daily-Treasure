@@ -1,0 +1,66 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "daily treasure",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "OpenIntent",
+          "slots": [],
+          "samples": [
+            "treasure",
+            "daily treasure",
+            "open my treasure",
+            "open my daily trasure",
+            "tell me my treasure",
+            "tell me my daily treasure",
+            "tell me treasure",
+            "tell me daily treasure",
+            "give me my treasure",
+            "give me my daily treasure",
+            "tell me my fortune",
+            "tell me my daily fortune",
+            "give me my fortune",
+            "give me my daily fortune",
+            "tell me something",
+            "give me something"
+          ]
+        },
+        {
+          "name": "LockIntent",
+          "slots": [
+            {
+              "name": "Treasure",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "lock {Treasure}",
+            "close {Treasure}",
+            "save {Treasure}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ]
+    }
+  },
+  "version": "25"
+}
