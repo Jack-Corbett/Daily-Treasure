@@ -4,11 +4,11 @@
     "default": {
       "skillId": "amzn1.ask.skill.1812681e-591a-468a-b49a-3f7a1b6293d1",
       "skillMetadata": {
-        "lastDeployHash": "wH1ed/GwtzeqQrmVVLbD4EIZCTU="
+        "lastDeployHash": "eKXIoi/c6hsqjSFHWpWG3/vuavQ="
       },
       "code": {
         "default": {
-          "lastDeployHash": "Doz5zqUHDJwgdRjwbGt2dW0d0I8="
+          "lastDeployHash": "hrJHeynk+Z+UucFK0JMrHmJvgWM="
         }
       },
       "skillInfrastructure": {
@@ -17,8 +17,8 @@
             "default": {
               "lambda": {
                 "arn": "arn:aws:lambda:us-east-1:499295336600:function:ask-custom-Daily-Treasure-default",
-                "lastModified": "2021-06-13T20:17:48.503+0000",
-                "revisionId": "1c895388-2134-4167-84de-66ec3e886121"
+                "lastModified": "2022-03-08T20:11:36.000+0000",
+                "revisionId": "464c38be-ad18-4415-82ea-5ea0c61cfdc7"
               },
               "iamRole": "arn:aws:iam::499295336600:role/ask-lambda-Daily-Treasure"
             }
