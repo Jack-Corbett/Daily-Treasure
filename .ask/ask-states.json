@@ -2,9 +2,9 @@
   "askcliStatesVersion": "2020-03-31",
   "profiles": {
     "default": {
-      "skillId": "amzn1.ask.skill.1812681e-591a-468a-b49a-3f7a1b6293d1",
+      "skillId": "amzn1.ask.skill.9d915cfa-e2d0-4a58-af3a-79228fd7afcf",
       "skillMetadata": {
-        "lastDeployHash": "eKXIoi/c6hsqjSFHWpWG3/vuavQ="
+        "lastDeployHash": "UXzjaUEUtlMA3rWKhW+nad8sIsY="
       },
       "code": {
         "default": {
@@ -16,11 +16,11 @@
           "deployState": {
             "default": {
               "lambda": {
-                "arn": "arn:aws:lambda:us-east-1:499295336600:function:ask-custom-Daily-Treasure-default",
-                "lastModified": "2022-03-08T20:11:36.000+0000",
-                "revisionId": "464c38be-ad18-4415-82ea-5ea0c61cfdc7"
+                "arn": "arn:aws:lambda:us-east-1:499295336600:function:ask-dailytreasure-default-default-1648326655484",
+                "lastModified": "2022-03-26T20:30:56.372+0000",
+                "revisionId": "c1e91f73-7a2e-4d7b-8d1e-5ef67920941d"
               },
-              "iamRole": "arn:aws:iam::499295336600:role/ask-lambda-Daily-Treasure"
+              "iamRole": "arn:aws:iam::499295336600:role/ask-lambda-DailyTreasure-1648326640173"
             }
           }
         }
